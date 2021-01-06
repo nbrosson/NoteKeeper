@@ -2,18 +2,17 @@ package com.example.notekeeper;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
@@ -137,9 +136,37 @@ public class NoteActivity extends AppCompatActivity {
         } else if (id == R.id.action_cancel) {
             mIsCancelling = true;
             finish();
+        } else if (id == R.id.action_next) {
+            moveNext();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * We will show the next button only if a next item exists
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_next);
+        int lastNoteIndex = DataManager.getInstance().getNotes().size() - 1;
+        item.setEnabled(mNotePosition < lastNoteIndex);
+        return super.onPrepareOptionsMenu(menu);
+
+    }
+
+    private void moveNext() {
+        // Save actual note before moving to the next one
+        saveNote();
+        ++mNotePosition;
+        mNote = DataManager.getInstance().getNotes().get(mNotePosition);
+
+        // Update the view model and update the activity with the new note
+        saveOriginalNoteValues();
+        displayNote(mSpinnerCourses, mTextNoteTitle, mTextNoteText);
+        invalidateOptionsMenu(); // running this function will call onPrepareOptionsMenu
     }
 
     /**
