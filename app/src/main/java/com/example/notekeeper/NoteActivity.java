@@ -144,7 +144,8 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     /**
-     * We will show the next button only if a next item exists
+     * Prepare the Screen's standard options menu to be displayed.
+     * This is called right before the menu is shown, every time it is shown
      * @param menu
      * @return
      */
@@ -166,7 +167,7 @@ public class NoteActivity extends AppCompatActivity {
         // Update the view model and update the activity with the new note
         saveOriginalNoteValues();
         displayNote(mSpinnerCourses, mTextNoteTitle, mTextNoteText);
-        invalidateOptionsMenu(); // running this function will call onPrepareOptionsMenu
+        invalidateOptionsMenu(); // used to say that contents of menu have changed, and menu should be redrawn
     }
 
     /**
