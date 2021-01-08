@@ -2,8 +2,8 @@ Java project to build an android mobile application.
 
 # Versions
 
-Android-studio: 3.4.0
-Java: 1.8
+- Android-studio: 3.4.0
+- Java: 1.8
 
 # Project overview 
 
