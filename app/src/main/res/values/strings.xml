@@ -16,4 +16,29 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="note_title_hint">Note Title</string>
+    <string name="note_text_hint">Note Text</string>
+    <string name="nav_share_message">You shared a lot already</string>
+    <string name="nav_send_message">Send</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">General</string>
+    <string name="sync_header">Other</string>
+
+    <!-- General Preferences -->
+    <string name="pref_title_display_name">Display Name</string>
+    <string name="pref_default_display_name">Your Name</string>
+    <string name="pref_title_email_address">Email Address</string>
+    <string name="pref_default_email_address">yourname@host.com</string>
+    <string name="signature_title">Name</string>
+    <string name="reply_title">Email</string>
+    <string name="pref_title_favorite_social">Favorite social network</string>
+    <string name="pref_default_favorite_social">http://plus.google.com</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Test1</string>
+    <string name="attachment_title">Test2</string>
+    <string name="attachment_summary_on">Test3</string>
+    <string name="attachment_summary_off">Test4</string>
 </resources>
