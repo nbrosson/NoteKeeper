@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -76,6 +77,20 @@ public class MainActivity extends AppCompatActivity
         initializeDisplayContent();
     }
 
+    /**
+     * To use if we want to add Thread Policy check
+     */
+    private void enableStrictMode() {
+        if(BuildConfig.DEBUG) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .detectAll()
+                    .penaltyLog()
+                    .build();
+            StrictMode.setThreadPolicy(policy);
+
+        }
+    }
+
     @Override
     protected void onDestroy() {
         mDbOpenHelper.close();
@@ -85,7 +100,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        LoaderManager.getInstance(this).initLoader(LOADER_NOTES, null, this);
+        LoaderManager.getInstance(this).restartLoader(LOADER_NOTES, null, this);
         updateNavHeader();
     }
 
