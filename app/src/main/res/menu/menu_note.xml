@@ -15,7 +15,11 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_send_mail"
-        android:orderInCategory="100"
+        android:orderInCategory="99"
         android:title="Send as email"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_set_reminder"
+        android:orderInCategory="100"
+        android:title="Set reminder" />
 </menu>

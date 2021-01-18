@@ -82,7 +82,7 @@ public class NoteKeeperProvider extends ContentProvider {
         int uriMatch = sUriMatcher.match(uri);
         switch(uriMatch){
             case COURSES:
-                // vnd.android.cursor.dir/vnd.com.jwhh.jim.notekeeper.provider.courses
+                // vnd.android.cursor.dir/vnd.com.example.notekeeper.provider.courses
                 mimeType = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" +
                         MIME_VENDOR_TYPE + Courses.PATH;
                 break;
